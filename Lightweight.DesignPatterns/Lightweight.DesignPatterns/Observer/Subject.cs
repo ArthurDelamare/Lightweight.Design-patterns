@@ -8,7 +8,7 @@ namespace Lightweight.DesignPatterns.Observer
 {
     public class Subject : ISubject
     {
-        private List<IObserver> _observers = new List<IObserver>();
+        protected List<IObserver> _observers = new List<IObserver>();
 
         public void Notify()
         {
@@ -23,6 +23,14 @@ namespace Lightweight.DesignPatterns.Observer
         public void Unsubscribe(IObserver observer)
         {
             this._observers.Remove(observer);
+        }
+
+        public int Count
+        {
+            get
+            {
+                return this._observers.Count;
+            }
         }
     }
 }
